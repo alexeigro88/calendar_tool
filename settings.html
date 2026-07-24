@@ -162,7 +162,7 @@
 <div class="w-full bg-surface overflow-hidden flex flex-col h-screen" style="font-family: Manrope, sans-serif;">
 
 <!-- Top Header -->
-<header class="flex items-center justify-between px-container-padding pt-[30px] pb-6 shrink-0">
+<header class="flex flex-wrap items-center justify-between gap-4 px-4 sm:px-container-padding pt-6 sm:pt-[30px] pb-6 shrink-0">
 <div class="flex items-center gap-4">
 <a href="code.html" class="w-12 h-12 profile-shadow rounded-xl relative block hover:opacity-90 transition-opacity">
 <div class="w-full h-full bg-white rounded-xl squircle flex items-center justify-center">
@@ -190,11 +190,11 @@ Back
 </header>
 
 <!-- Main Content -->
-<main class="flex-1 overflow-y-auto custom-scrollbar px-container-padding pb-10">
-<div class="grid grid-cols-12 gap-[24px]">
+<main class="flex-1 overflow-y-auto custom-scrollbar px-4 sm:px-container-padding pb-10">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-[24px]">
 
 <!-- Left: Avatar / Identity card -->
-<div class="col-span-4 profile-shadow rounded-card relative self-start">
+<div class="col-span-full md:col-span-4 profile-shadow rounded-card relative self-start">
 <div class="rounded-card squircle bg-surface-container-lowest p-card-inner-padding flex flex-col items-center text-center">
 <div class="relative mb-6">
 <div class="w-[120px] h-[120px] rounded-full shadow-[0_8px_20px_-8px_rgba(26,32,40,0.18)]">
@@ -218,14 +218,14 @@ Delete Account
 </div>
 
 <!-- Right column -->
-<div class="col-span-8 space-y-gutter">
+<div class="col-span-full md:col-span-8 space-y-gutter">
 
 <!-- Profile details -->
 <div class="profile-shadow rounded-card">
 <div class="rounded-card squircle bg-surface-container-lowest p-card-inner-padding">
 <p class="font-title-sm text-title-sm mb-1">Profile Details</p>
 <p class="text-[12px] font-normal text-tertiary mb-6">Update your name and how others see you across connected calendars.</p>
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div>
 <label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">Full name</label>
 <input class="form-input" type="text" value="Alex Watson">
@@ -234,7 +234,7 @@ Delete Account
 <label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">Job title</label>
 <input class="form-input" type="text" value="Project Manager">
 </div>
-<div class="col-span-2">
+<div class="col-span-full">
 <label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">Primary email</label>
 <input class="form-input opacity-60" type="email" value="alex.watson@rapidevelopers.com" disabled="">
 </div>
@@ -248,12 +248,12 @@ Delete Account
 <!-- Connected Calendars -->
 <div class="profile-shadow rounded-card">
 <div class="rounded-card squircle bg-surface-container-lowest p-card-inner-padding">
-<div class="flex items-start justify-between gap-4 mb-6">
+<div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
 <div>
 <p class="font-title-sm text-title-sm mb-1">Connected Calendars</p>
 <p class="text-[12px] font-normal text-tertiary">Assign a company to color-code its events. Toggle any calendar to show it in the app.</p>
 </div>
-<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl squircle border border-outline-variant text-[13px] font-semibold text-on-surface hover:border-primary hover:text-primary transition-colors shrink-0 whitespace-nowrap">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl squircle border border-outline-variant text-[13px] font-semibold text-on-surface hover:border-primary hover:text-primary transition-colors shrink-0 whitespace-nowrap self-start">
 <span class="material-symbols-outlined text-[18px]">add_link</span>
 Connect Google Calendar
 </button>
@@ -263,8 +263,8 @@ Connect Google Calendar
 
 <!-- RapidDev account -->
 <div class="rounded-xl border border-outline-variant/60">
-<div class="flex items-center gap-3 pl-4 pr-3 py-3 bg-surface-container-low/50 rounded-t-xl">
-<div class="flex items-center gap-2.5 flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-3 pl-4 pr-3 py-3 bg-surface-container-low/50 rounded-t-xl">
+<div class="flex items-center gap-2.5 w-full sm:w-auto sm:flex-1 min-w-0">
 <img class="w-6 h-6 rounded-full object-cover ring-2 ring-primary shrink-0" alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEvLJMwjGC15-_F6bM6aCwWVVXsJ8ziK00FISOIaIsdzQQtyFQlioCBn8Z9b-2fHR59k18DQ3Lthf11pdhSmNbHR1jjq09ab3sHSSAhq-ObgeMXGMCYJRz6TIW1P2SWBCzI3NcXI6Iu4g9dxTan5oToqm7AJhK2iddtKdDMl0Cv10SECcapGUv6LnQmXziB6Gxmo5eS-yDdLjdF1SsTW_jbcwk-dZlGpnulG1qkMM4BPEv_zAWUBOSWA">
 <p class="text-[13px] font-medium text-on-surface truncate leading-none">alex.watson@rapidevelopers.com <span class="text-tertiary font-normal">&middot; 2 calendars</span></p>
 </div>
@@ -310,8 +310,8 @@ Disconnect
 
 <!-- Zeroqode account -->
 <div class="rounded-xl border border-outline-variant/60">
-<div class="flex items-center gap-3 pl-4 pr-3 py-3 bg-surface-container-low/50 rounded-t-xl">
-<div class="flex items-center gap-2.5 flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-3 pl-4 pr-3 py-3 bg-surface-container-low/50 rounded-t-xl">
+<div class="flex items-center gap-2.5 w-full sm:w-auto sm:flex-1 min-w-0">
 <img class="w-6 h-6 rounded-full object-cover ring-2 ring-[#2BA8D1] shrink-0" alt="" src="https://randomuser.me/api/portraits/men/32.jpg">
 <p class="text-[13px] font-medium text-on-surface truncate leading-none">alex.w@zeroqode.com <span class="text-tertiary font-normal">&middot; 1 calendar</span></p>
 </div>
@@ -346,8 +346,8 @@ Disconnect
 
 <!-- Kaleo account -->
 <div class="rounded-xl border border-outline-variant/60">
-<div class="flex items-center gap-3 pl-4 pr-3 py-3 bg-surface-container-low/50 rounded-t-xl">
-<div class="flex items-center gap-2.5 flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-3 pl-4 pr-3 py-3 bg-surface-container-low/50 rounded-t-xl">
+<div class="flex items-center gap-2.5 w-full sm:w-auto sm:flex-1 min-w-0">
 <img class="w-6 h-6 rounded-full object-cover ring-2 ring-blue-500 shrink-0" alt="" src="https://randomuser.me/api/portraits/men/68.jpg">
 <p class="text-[13px] font-medium text-on-surface truncate leading-none">alex.wat1@kaleo.design <span class="text-tertiary font-normal">&middot; 2 calendars</span></p>
 </div>
