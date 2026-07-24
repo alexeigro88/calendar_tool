@@ -223,8 +223,8 @@ Delete Account
 <!-- Profile details -->
 <div class="profile-shadow rounded-card">
 <div class="rounded-card squircle bg-surface-container-lowest p-card-inner-padding">
-<p class="font-title-sm text-title-sm mb-1">Profile details</p>
-<p class="text-label-md text-tertiary mb-6">Update your name and how others see you across connected calendars.</p>
+<p class="font-title-sm text-title-sm mb-1">Profile Details</p>
+<p class="text-[12px] font-normal text-tertiary mb-6">Update your name and how others see you across connected calendars.</p>
 <div class="grid grid-cols-2 gap-4">
 <div>
 <label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">Full name</label>
@@ -245,103 +245,153 @@ Delete Account
 </div>
 </div>
 
-<!-- Password -->
-<div class="profile-shadow rounded-card">
-<div class="rounded-card squircle bg-surface-container-lowest p-card-inner-padding">
-<p class="font-title-sm text-title-sm mb-1">Password</p>
-<p class="text-label-md text-tertiary mb-6">Use a strong password you don't use elsewhere.</p>
-<div class="grid grid-cols-2 gap-4">
-<div class="col-span-2">
-<label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">Current password</label>
-<div class="relative">
-<input class="form-input" style="padding-right: 2.75rem;" type="password" placeholder="••••••••" oninput="this.nextElementSibling.classList.toggle('hidden', this.value.length === 0)">
-<button type="button" onclick="togglePasswordVisibility(this)" class="hidden absolute inset-y-0 right-1 w-8 flex items-center justify-center text-outline hover:text-on-surface-variant transition-colors">
-<span class="material-symbols-outlined text-[18px] leading-none">visibility</span>
-</button>
-</div>
-</div>
-<div>
-<label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">New password</label>
-<div class="relative">
-<input class="form-input" style="padding-right: 2.75rem;" type="password" placeholder="••••••••" oninput="this.nextElementSibling.classList.toggle('hidden', this.value.length === 0)">
-<button type="button" onclick="togglePasswordVisibility(this)" class="hidden absolute inset-y-0 right-1 w-8 flex items-center justify-center text-outline hover:text-on-surface-variant transition-colors">
-<span class="material-symbols-outlined text-[18px] leading-none">visibility</span>
-</button>
-</div>
-</div>
-<div>
-<label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">Confirm new password</label>
-<div class="relative">
-<input class="form-input" style="padding-right: 2.75rem;" type="password" placeholder="••••••••" oninput="this.nextElementSibling.classList.toggle('hidden', this.value.length === 0)">
-<button type="button" onclick="togglePasswordVisibility(this)" class="hidden absolute inset-y-0 right-1 w-8 flex items-center justify-center text-outline hover:text-on-surface-variant transition-colors">
-<span class="material-symbols-outlined text-[18px] leading-none">visibility</span>
-</button>
-</div>
-</div>
-</div>
-<div class="flex justify-end mt-6">
-<button class="px-5 py-2.5 rounded-xl squircle border border-outline-variant text-[14px] font-semibold text-on-surface hover:bg-surface-container-low transition-colors">Update Password</button>
-</div>
-</div>
-</div>
-
 <!-- Connected Calendars -->
 <div class="profile-shadow rounded-card">
 <div class="rounded-card squircle bg-surface-container-lowest p-card-inner-padding">
-<div class="flex items-center justify-between mb-1">
-<p class="font-title-sm text-title-sm">Connected Calendars</p>
-<span class="bg-primary/10 text-primary text-[11px] font-bold min-w-[18px] h-[18px] px-1.5 rounded-full flex items-center justify-center">3</span>
+<div class="flex items-start justify-between gap-4 mb-6">
+<div>
+<p class="font-title-sm text-title-sm mb-1">Connected Calendars</p>
+<p class="text-[12px] font-normal text-tertiary">Assign a company to color-code its events. Toggle any calendar to show it in the app.</p>
 </div>
-<p class="text-label-md text-tertiary mb-6">Events from these accounts are shown color-coded across your dashboard and calendar.</p>
-<div class="space-y-1">
-
-<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-surface-container-low transition-colors">
-<div class="relative w-10 h-10 shrink-0">
-<img class="w-full h-full rounded-full object-cover ring-2 ring-primary" alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEvLJMwjGC15-_F6bM6aCwWVVXsJ8ziK00FISOIaIsdzQQtyFQlioCBn8Z9b-2fHR59k18DQ3Lthf11pdhSmNbHR1jjq09ab3sHSSAhq-ObgeMXGMCYJRz6TIW1P2SWBCzI3NcXI6Iu4g9dxTan5oToqm7AJhK2iddtKdDMl0Cv10SECcapGUv6LnQmXziB6Gxmo5eS-yDdLjdF1SsTW_jbcwk-dZlGpnulG1qkMM4BPEv_zAWUBOSWA">
-<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full flex items-center justify-center shadow-sm">
-<svg width="10" height="10" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
-</div>
-</div>
-<div class="flex-1 min-w-0">
-<p class="text-[13px] font-medium text-on-surface truncate">alex.watson@rapidevelopers.com</p>
-<p class="text-[11px] text-tertiary">RapidDev &middot; Primary</p>
-</div>
-<button class="text-[13px] font-medium text-tertiary hover:text-primary transition-colors shrink-0">Disconnect</button>
-</div>
-
-<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-surface-container-low transition-colors">
-<div class="relative w-10 h-10 shrink-0">
-<img class="w-full h-full rounded-full object-cover ring-2 ring-[#2BA8D1]" alt="" src="https://randomuser.me/api/portraits/men/32.jpg">
-<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full flex items-center justify-center shadow-sm">
-<svg width="10" height="10" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
-</div>
-</div>
-<div class="flex-1 min-w-0">
-<p class="text-[13px] font-medium text-on-surface truncate">alex.w@zeroqode.com</p>
-<p class="text-[11px] text-tertiary">Zeroqode</p>
-</div>
-<button class="text-[13px] font-medium text-tertiary hover:text-primary transition-colors shrink-0">Disconnect</button>
-</div>
-
-<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-surface-container-low transition-colors">
-<div class="relative w-10 h-10 shrink-0">
-<img class="w-full h-full rounded-full object-cover ring-2 ring-blue-500" alt="" src="https://randomuser.me/api/portraits/men/68.jpg">
-<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full flex items-center justify-center shadow-sm">
-<svg width="10" height="10" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
-</div>
-</div>
-<div class="flex-1 min-w-0">
-<p class="text-[13px] font-medium text-on-surface truncate">alex.wat1@kaleo.design</p>
-<p class="text-[11px] text-tertiary">Kaleo</p>
-</div>
-<button class="text-[13px] font-medium text-tertiary hover:text-primary transition-colors shrink-0">Disconnect</button>
-</div>
-
-</div>
-<button class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-dashed border-outline-variant text-[13px] font-semibold text-on-surface-variant hover:border-primary hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-[18px]">add</span>
-Add Another Calendar
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl squircle border border-outline-variant text-[13px] font-semibold text-on-surface hover:border-primary hover:text-primary transition-colors shrink-0 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">add_link</span>
+Connect Google Calendar
 </button>
+</div>
+
+<div class="space-y-4">
+
+<!-- RapidDev account -->
+<div class="rounded-xl border border-outline-variant/60">
+<div class="flex items-center gap-3 pl-4 pr-3 py-3 bg-surface-container-low/50 rounded-t-xl">
+<div class="flex items-center gap-2.5 flex-1 min-w-0">
+<img class="w-6 h-6 rounded-full object-cover ring-2 ring-primary shrink-0" alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEvLJMwjGC15-_F6bM6aCwWVVXsJ8ziK00FISOIaIsdzQQtyFQlioCBn8Z9b-2fHR59k18DQ3Lthf11pdhSmNbHR1jjq09ab3sHSSAhq-ObgeMXGMCYJRz6TIW1P2SWBCzI3NcXI6Iu4g9dxTan5oToqm7AJhK2iddtKdDMl0Cv10SECcapGUv6LnQmXziB6Gxmo5eS-yDdLjdF1SsTW_jbcwk-dZlGpnulG1qkMM4BPEv_zAWUBOSWA">
+<p class="text-[13px] font-medium text-on-surface truncate leading-none">alex.watson@rapidevelopers.com <span class="text-tertiary font-normal">&middot; 2 calendars</span></p>
+</div>
+<div class="relative shrink-0">
+<button onclick="event.stopPropagation(); document.getElementById('companyMenu1').classList.toggle('hidden')" class="flex items-center gap-2 bg-white border border-outline-variant rounded-full pl-3 pr-2.5 py-1.5 text-[12px] font-medium text-on-surface hover:border-primary transition-colors">
+<span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+RapidDev
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</button>
+<div id="companyMenu1" class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-xl card-shadow border border-surface-container-high py-2 z-50 text-left">
+<a class="flex items-center gap-2.5 px-4 py-2 text-[13px] text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="w-2 h-2 rounded-full bg-primary"></span>RapidDev</a>
+<a class="flex items-center gap-2.5 px-4 py-2 text-[13px] text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="w-2 h-2 rounded-full bg-[#2BA8D1]"></span>Zeroqode</a>
+<a class="flex items-center gap-2.5 px-4 py-2 text-[13px] text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="w-2 h-2 rounded-full bg-blue-500"></span>Kaleo</a>
+</div>
+</div>
+<button class="flex items-center gap-1.5 text-[12px] font-medium text-tertiary hover:text-primary transition-colors shrink-0">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+Disconnect
+</button>
+</div>
+<div class="divide-y divide-outline-variant/50">
+<div class="flex items-center justify-between gap-3 pl-[50px] pr-4 py-2.5">
+<p class="text-[13px] text-on-surface truncate min-w-0 leading-none">Primary calendar <span class="text-tertiary">&middot; alex.watson@rapidevelopers.com</span></p>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input type="checkbox" class="sr-only peer" checked="">
+<div class="w-9 h-5 bg-surface-container-high rounded-full peer-checked:bg-on-surface-variant transition-colors"></div>
+<div class="absolute left-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow-sm transition-transform peer-checked:translate-x-4"></div>
+</label>
+</div>
+<div class="flex items-center justify-between gap-3 pl-[50px] pr-4 py-2.5">
+<div class="flex items-center gap-2 min-w-0">
+<p class="text-[13px] text-on-surface truncate leading-none">Holidays in United States</p>
+<span class="text-[10px] font-semibold text-tertiary bg-surface-container-low px-1.5 py-0.5 rounded-full shrink-0">READ-ONLY</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input type="checkbox" class="sr-only peer">
+<div class="w-9 h-5 bg-surface-container-high rounded-full peer-checked:bg-on-surface-variant transition-colors"></div>
+<div class="absolute left-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow-sm transition-transform peer-checked:translate-x-4"></div>
+</label>
+</div>
+</div>
+</div>
+
+<!-- Zeroqode account -->
+<div class="rounded-xl border border-outline-variant/60">
+<div class="flex items-center gap-3 pl-4 pr-3 py-3 bg-surface-container-low/50 rounded-t-xl">
+<div class="flex items-center gap-2.5 flex-1 min-w-0">
+<img class="w-6 h-6 rounded-full object-cover ring-2 ring-[#2BA8D1] shrink-0" alt="" src="https://randomuser.me/api/portraits/men/32.jpg">
+<p class="text-[13px] font-medium text-on-surface truncate leading-none">alex.w@zeroqode.com <span class="text-tertiary font-normal">&middot; 1 calendar</span></p>
+</div>
+<div class="relative shrink-0">
+<button onclick="event.stopPropagation(); document.getElementById('companyMenu2').classList.toggle('hidden')" class="flex items-center gap-2 bg-white border border-outline-variant rounded-full pl-3 pr-2.5 py-1.5 text-[12px] font-medium text-on-surface hover:border-primary transition-colors">
+<span class="w-2 h-2 rounded-full bg-[#2BA8D1] shrink-0"></span>
+Zeroqode
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</button>
+<div id="companyMenu2" class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-xl card-shadow border border-surface-container-high py-2 z-50 text-left">
+<a class="flex items-center gap-2.5 px-4 py-2 text-[13px] text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="w-2 h-2 rounded-full bg-primary"></span>RapidDev</a>
+<a class="flex items-center gap-2.5 px-4 py-2 text-[13px] text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="w-2 h-2 rounded-full bg-[#2BA8D1]"></span>Zeroqode</a>
+<a class="flex items-center gap-2.5 px-4 py-2 text-[13px] text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="w-2 h-2 rounded-full bg-blue-500"></span>Kaleo</a>
+</div>
+</div>
+<button class="flex items-center gap-1.5 text-[12px] font-medium text-tertiary hover:text-primary transition-colors shrink-0">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+Disconnect
+</button>
+</div>
+<div class="divide-y divide-outline-variant/50">
+<div class="flex items-center justify-between gap-3 pl-[50px] pr-4 py-2.5">
+<p class="text-[13px] text-on-surface truncate min-w-0 leading-none">Primary calendar <span class="text-tertiary">&middot; alex.w@zeroqode.com</span></p>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input type="checkbox" class="sr-only peer" checked="">
+<div class="w-9 h-5 bg-surface-container-high rounded-full peer-checked:bg-on-surface-variant transition-colors"></div>
+<div class="absolute left-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow-sm transition-transform peer-checked:translate-x-4"></div>
+</label>
+</div>
+</div>
+</div>
+
+<!-- Kaleo account -->
+<div class="rounded-xl border border-outline-variant/60">
+<div class="flex items-center gap-3 pl-4 pr-3 py-3 bg-surface-container-low/50 rounded-t-xl">
+<div class="flex items-center gap-2.5 flex-1 min-w-0">
+<img class="w-6 h-6 rounded-full object-cover ring-2 ring-blue-500 shrink-0" alt="" src="https://randomuser.me/api/portraits/men/68.jpg">
+<p class="text-[13px] font-medium text-on-surface truncate leading-none">alex.wat1@kaleo.design <span class="text-tertiary font-normal">&middot; 2 calendars</span></p>
+</div>
+<div class="relative shrink-0">
+<button onclick="event.stopPropagation(); document.getElementById('companyMenu3').classList.toggle('hidden')" class="flex items-center gap-2 bg-white border border-outline-variant rounded-full pl-3 pr-2.5 py-1.5 text-[12px] font-medium text-on-surface hover:border-primary transition-colors">
+<span class="w-2 h-2 rounded-full bg-blue-500 shrink-0"></span>
+Kaleo
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</button>
+<div id="companyMenu3" class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-xl card-shadow border border-surface-container-high py-2 z-50 text-left">
+<a class="flex items-center gap-2.5 px-4 py-2 text-[13px] text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="w-2 h-2 rounded-full bg-primary"></span>RapidDev</a>
+<a class="flex items-center gap-2.5 px-4 py-2 text-[13px] text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="w-2 h-2 rounded-full bg-[#2BA8D1]"></span>Zeroqode</a>
+<a class="flex items-center gap-2.5 px-4 py-2 text-[13px] text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="w-2 h-2 rounded-full bg-blue-500"></span>Kaleo</a>
+</div>
+</div>
+<button class="flex items-center gap-1.5 text-[12px] font-medium text-tertiary hover:text-primary transition-colors shrink-0">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+Disconnect
+</button>
+</div>
+<div class="divide-y divide-outline-variant/50">
+<div class="flex items-center justify-between gap-3 pl-[50px] pr-4 py-2.5">
+<p class="text-[13px] text-on-surface truncate min-w-0 leading-none">Primary calendar <span class="text-tertiary">&middot; alex.wat1@kaleo.design</span></p>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input type="checkbox" class="sr-only peer" checked="">
+<div class="w-9 h-5 bg-surface-container-high rounded-full peer-checked:bg-on-surface-variant transition-colors"></div>
+<div class="absolute left-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow-sm transition-transform peer-checked:translate-x-4"></div>
+</label>
+</div>
+<div class="flex items-center justify-between gap-3 pl-[50px] pr-4 py-2.5">
+<div class="flex items-center gap-2 min-w-0">
+<p class="text-[13px] text-on-surface truncate leading-none">Team Availability</p>
+<span class="text-[10px] font-semibold text-tertiary bg-surface-container-low px-1.5 py-0.5 rounded-full shrink-0">READ-ONLY</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input type="checkbox" class="sr-only peer">
+<div class="w-9 h-5 bg-surface-container-high rounded-full peer-checked:bg-on-surface-variant transition-colors"></div>
+<div class="absolute left-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow-sm transition-transform peer-checked:translate-x-4"></div>
+</label>
+</div>
+</div>
+</div>
+
+</div>
 </div>
 </div>
 
@@ -351,17 +401,12 @@ Add Another Calendar
 </div>
 
 <script>
-function togglePasswordVisibility(btn) {
-    var input = btn.previousElementSibling;
-    var icon = btn.querySelector('span');
-    if (input.type === 'password') {
-        input.type = 'text';
-        icon.textContent = 'visibility_off';
-    } else {
-        input.type = 'password';
-        icon.textContent = 'visibility';
-    }
-}
+document.addEventListener('click', function () {
+    ['companyMenu1', 'companyMenu2', 'companyMenu3'].forEach(function (id) {
+        var menu = document.getElementById(id);
+        if (menu) menu.classList.add('hidden');
+    });
+});
 </script>
 
 <!-- iOS-style continuous corner smoothing (squircle) -->
