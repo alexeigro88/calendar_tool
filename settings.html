@@ -1,0 +1,399 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RapidDev | Settings</title>
+<link href="logo_favicon.svg" rel="icon" type="image/svg+xml">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#EBEFF3",
+                        "outline": "#9098A6",
+                        "surface-container-low": "#EBEFF3",
+                        "surface-container": "#EBEFF3",
+                        "on-secondary-fixed": "#FFFFFF",
+                        "error-container": "#F9FAFB",
+                        "tertiary-container": "#52556A",
+                        "outline-variant": "#EBEFF3",
+                        "secondary": "#10123B",
+                        "tertiary-fixed-dim": "#9098A6",
+                        "tertiary": "#9CA3AF",
+                        "surface-tint": "#DC2237",
+                        "on-surface": "#1A2028",
+                        "inverse-primary": "#F01515",
+                        "on-secondary-fixed-variant": "#52556A",
+                        "on-primary-fixed-variant": "#10123B",
+                        "primary": "#DC2237",
+                        "on-primary": "#FFFFFF",
+                        "tertiary-fixed": "#EBEFF3",
+                        "surface-variant": "#EBEFF3",
+                        "inverse-surface": "#1A2028",
+                        "surface-container-lowest": "#FFFFFF",
+                        "primary-container": "#F01515",
+                        "secondary-fixed-dim": "#9098A6",
+                        "secondary-container": "#EBEFF3",
+                        "inverse-on-surface": "#F9FAFB",
+                        "on-tertiary-container": "#FFFFFF",
+                        "on-secondary-container": "#FFFFFF",
+                        "surface": "#F9FAFB",
+                        "on-background": "#1A2028",
+                        "on-tertiary": "#FFFFFF",
+                        "secondary-fixed": "#EBEFF3",
+                        "surface-container-highest": "#EBEFF3",
+                        "error": "#F01515",
+                        "on-tertiary-fixed-variant": "#52556A",
+                        "on-primary-fixed": "#1A2028",
+                        "on-tertiary-fixed": "#1A2028",
+                        "on-surface-variant": "#374151",
+                        "on-error": "#FFFFFF",
+                        "primary-fixed-dim": "#F01515",
+                        "primary-fixed": "#EBEFF3",
+                        "on-error-container": "#1A2028",
+                        "surface-dim": "#EBEFF3",
+                        "on-primary-container": "#FFFFFF",
+                        "background": "#F9FAFB",
+                        "on-secondary": "#FFFFFF",
+                        "surface-bright": "#F9FAFB",
+                        "neutral-50": "#374151",
+                        "neutral-100": "#EBEFF3",
+                        "neutral-200": "#9098A6",
+                        "neutral-300": "#52556A",
+                        "neutral-400": "#F9FAFB",
+                        "neutral-500": "#AAAAAA",
+                        "neutral-700": "#F9F9F9",
+                        "neutral-800": "#1A2028",
+                        "neutral-900": "#2D323C",
+                        "button-100": "#DC2237",
+                        "button-200": "#F01515",
+                        "button-300": "#9098A6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "card": "24px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "stack-lg": "1.5rem",
+                        "gutter": "1.5rem",
+                        "card-inner-padding": "2rem",
+                        "container-padding": "3rem",
+                        "stack-md": "1rem"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Manrope"],
+                        "title-sm": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "body-sm": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-base": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-base": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #F9FAFB;
+            color: #1A2028;
+            font-family: 'Manrope', sans-serif;
+        }
+        .card-shadow {
+            box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.05), 0 2px 8px -2px rgba(0, 0, 0, 0.03);
+        }
+        .profile-shadow {
+            box-shadow: 0 12px 60px -6px rgba(26, 32, 40, 0.025), 0 6px 32px -3px rgba(26, 32, 40, 0.015);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 2px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(188, 200, 205, 0.15);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #D8DEE3;
+            border-radius: 10px;
+        }
+        .form-input {
+            width: 100%;
+            border-radius: 0.5rem !important;
+            border: 1px solid #EBEFF3 !important;
+            background-color: #FFFFFF !important;
+            padding: 0.625rem 1rem;
+            font-size: 14px !important;
+            color: #1A2028;
+            box-shadow: none;
+            transition: border-color .15s ease, box-shadow .15s ease;
+        }
+        .form-input::placeholder {
+            color: #9CA3AF;
+        }
+        .form-input:hover {
+            border-color: #9098A6 !important;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #DC2237;
+            box-shadow: inset 0 0 0 2px rgba(220,34,55,0.18);
+        }
+    </style>
+</head>
+<body class="h-screen overflow-hidden">
+<div class="w-full bg-surface overflow-hidden flex flex-col h-screen" style="font-family: Manrope, sans-serif;">
+
+<!-- Top Header -->
+<header class="flex items-center justify-between px-container-padding pt-[30px] pb-6 shrink-0">
+<div class="flex items-center gap-4">
+<a href="code.html" class="w-12 h-12 profile-shadow rounded-xl relative block hover:opacity-90 transition-opacity">
+<div class="w-full h-full bg-white rounded-xl squircle flex items-center justify-center">
+<svg width="20" height="22" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26.619 26.348C26.619 27.2048 26.2745 28.0265 25.6612 28.6324C25.0479 29.2382 24.2161 29.5786 23.3488 29.5786H23.192C22.3247 29.5786 21.493 29.2382 20.8797 28.6324C20.2664 28.0265 19.9219 27.2048 19.9219 26.348V3.23057C19.9219 2.37377 20.2664 1.55206 20.8797 0.946213C21.493 0.340363 22.3247 0 23.192 0H23.3488C24.2161 0 25.0479 0.340363 25.6612 0.946213C26.2745 1.55206 26.619 2.37377 26.619 3.23057V26.348ZM25.3811 15.8247C25.3811 15.289 25.1657 14.7753 24.7822 14.3965C24.3988 14.0177 23.8787 13.8048 23.3365 13.8048H23.2085C22.6663 13.8048 22.1462 14.0177 21.7628 14.3965C21.3793 14.7753 21.1639 15.289 21.1639 15.8247V26.24C21.1639 26.7757 21.3793 27.2895 21.7628 27.6683C22.1462 28.0471 22.6663 28.2599 23.2085 28.2599H23.3365C23.8787 28.2599 24.3988 28.0471 24.7822 27.6683C25.1657 27.2895 25.3811 26.7757 25.3811 26.24V15.8247Z" fill="#DC2237"/>
+<path d="M16.6618 26.3689C16.6618 26.79 16.5778 27.2069 16.4147 27.5959C16.2516 27.9849 16.0126 28.3383 15.7112 28.636C15.4098 28.9337 15.0521 29.1699 14.6583 29.331C14.2646 29.4921 13.8425 29.5751 13.4164 29.5751H13.2142C12.3534 29.5751 11.5279 29.2373 10.9193 28.636C10.3107 28.0347 9.96875 27.2193 9.96875 26.3689V10.8663C9.96875 10.4452 10.0527 10.0283 10.2158 9.63934C10.3789 9.25036 10.6179 8.89692 10.9193 8.59921C11.5279 7.99794 12.3534 7.66016 13.2142 7.66016H13.4164C13.8425 7.66016 14.2646 7.74309 14.6583 7.90421C15.0521 8.06533 15.4098 8.30149 15.7112 8.59921C16.0126 8.89692 16.2516 9.25036 16.4147 9.63934C16.5778 10.0283 16.6618 10.4452 16.6618 10.8663V26.3689ZM15.4176 20.1585C15.4176 19.6304 15.2053 19.1239 14.8273 18.7504C14.4492 18.377 13.9365 18.1672 13.4019 18.1672H13.2286C12.694 18.1672 12.1813 18.377 11.8033 18.7504C11.4252 19.1239 11.2129 19.6304 11.2129 20.1585V26.2609C11.2129 26.7891 11.4252 27.2956 11.8033 27.669C12.1813 28.0425 12.694 28.2523 13.2286 28.2523H13.4019C13.9365 28.2523 14.4492 28.0425 14.8273 27.669C15.2053 27.2956 15.4176 26.7891 15.4176 26.2609V20.1585Z" fill="#DC2237"/>
+<path d="M23.3444 13.8047H23.2165C22.0873 13.8047 21.1719 14.709 21.1719 15.8246V26.2398C21.1719 27.3554 22.0873 28.2597 23.2165 28.2597H23.3444C24.4736 28.2597 25.389 27.3554 25.389 26.2398V15.8246C25.389 14.709 24.4736 13.8047 23.3444 13.8047Z" fill="#DC2237"/>
+<path d="M6.63515 26.4777C6.63227 26.885 6.5482 27.2879 6.38774 27.6631C6.22727 28.0384 5.99356 28.3788 5.69993 28.6648C5.40631 28.9509 5.05853 29.177 4.67645 29.3303C4.29438 29.4835 3.88548 29.5609 3.47312 29.5581L3.11825 29.5557C2.28544 29.5499 1.48905 29.2176 0.904285 28.6317C0.319515 28.0459 -0.00573844 27.2546 7.66534e-05 26.4319L0.0397312 20.8188C0.0426094 20.4114 0.126681 20.0086 0.287146 19.6333C0.447611 19.258 0.681326 18.9177 0.974948 18.6316C1.26857 18.3456 1.61635 18.1195 1.99843 17.9662C2.3805 17.8129 2.7894 17.7355 3.20177 17.7384L3.55663 17.7408C4.38944 17.7466 5.18583 18.0789 5.7706 18.6647C6.35537 19.2505 6.68062 20.0418 6.6748 20.8646L6.63515 26.4777ZM5.40709 25.1117C5.40885 24.8635 5.36111 24.6175 5.26662 24.3876C5.17213 24.1577 5.03272 23.9485 4.85636 23.7718C4.68001 23.5951 4.47015 23.4545 4.23878 23.358C4.00741 23.2614 3.75906 23.2108 3.5079 23.2091L3.19842 23.207C2.69119 23.2035 2.20332 23.3992 1.84215 23.751C1.48097 24.1029 1.27608 24.5821 1.27253 25.0832L1.26366 26.3387C1.26191 26.5868 1.30964 26.8328 1.40413 27.0627C1.49863 27.2926 1.63803 27.5019 1.81439 27.6785C1.99075 27.8552 2.2006 27.9958 2.43197 28.0924C2.66334 28.1889 2.91169 28.2395 3.16285 28.2412L3.47233 28.2434C3.97957 28.2469 4.46743 28.0512 4.82861 27.6993C5.18978 27.3475 5.39468 26.8683 5.39822 26.3672L5.40709 25.1117Z" fill="#DC2237"/>
+<path d="M13.3922 18.1641H13.2189C12.1056 18.1641 11.2031 19.0556 11.2031 20.1554V26.2578C11.2031 27.3576 12.1056 28.2492 13.2189 28.2492H13.3922C14.5054 28.2492 15.4079 27.3576 15.4079 26.2578V20.1554C15.4079 19.0556 14.5054 18.1641 13.3922 18.1641Z" fill="#DC2237"/>
+<path d="M3.51107 23.2067L3.2016 23.2046C2.14533 23.1973 1.28308 24.0373 1.27571 25.0808L1.26684 26.3363C1.25946 27.3798 2.10976 28.2316 3.16602 28.2389L3.47549 28.241C4.53176 28.2483 5.39401 27.4083 5.40138 26.3648L5.41026 25.1093C5.41763 24.0658 4.56734 23.214 3.51107 23.2067Z" fill="#DC2237"/>
+</svg>
+</div>
+</a>
+<div>
+<h1 class="text-[22px] font-medium">Settings</h1>
+<p class="text-[12px] text-tertiary">Manage your profile and connected calendars</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<a href="code.html" class="flex items-center gap-2 bg-white card-shadow rounded-full h-12 pl-4 pr-5 text-[13px] font-medium text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+Back
+</a>
+</div>
+</header>
+
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto custom-scrollbar px-container-padding pb-10">
+<div class="grid grid-cols-12 gap-[24px]">
+
+<!-- Left: Avatar / Identity card -->
+<div class="col-span-4 profile-shadow rounded-card relative self-start">
+<div class="rounded-card squircle bg-surface-container-lowest p-card-inner-padding flex flex-col items-center text-center">
+<div class="relative mb-6">
+<div class="w-[120px] h-[120px] rounded-full shadow-[0_8px_20px_-8px_rgba(26,32,40,0.18)]">
+<img alt="Alex Watson" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEvLJMwjGC15-_F6bM6aCwWVVXsJ8ziK00FISOIaIsdzQQtyFQlioCBn8Z9b-2fHR59k18DQ3Lthf11pdhSmNbHR1jjq09ab3sHSSAhq-ObgeMXGMCYJRz6TIW1P2SWBCzI3NcXI6Iu4g9dxTan5oToqm7AJhK2iddtKdDMl0Cv10SECcapGUv6LnQmXziB6Gxmo5eS-yDdLjdF1SsTW_jbcwk-dZlGpnulG1qkMM4BPEv_zAWUBOSWA">
+</div>
+<button class="absolute bottom-1 right-1 w-9 h-9 rounded-full bg-white shadow-[0_4px_12px_-2px_rgba(26,32,40,0.25)] flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" title="Change photo">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</button>
+</div>
+<h2 class="text-[18px] font-semibold text-on-surface">Alex Watson</h2>
+<p class="text-label-md text-tertiary mt-1">Project Manager</p>
+<p class="text-label-md text-tertiary mt-4">alex.watson@rapidevelopers.com</p>
+<div class="w-full mt-8 pt-6 border-t border-outline-variant/60">
+<p class="text-[11px] font-semibold text-tertiary uppercase tracking-wide text-left mb-3">Danger zone</p>
+<button class="w-full text-left flex items-center gap-2 px-3 py-2.5 rounded-lg text-[13px] font-medium text-primary hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+Delete Account
+</button>
+</div>
+</div>
+</div>
+
+<!-- Right column -->
+<div class="col-span-8 space-y-gutter">
+
+<!-- Profile details -->
+<div class="profile-shadow rounded-card">
+<div class="rounded-card squircle bg-surface-container-lowest p-card-inner-padding">
+<p class="font-title-sm text-title-sm mb-1">Profile details</p>
+<p class="text-label-md text-tertiary mb-6">Update your name and how others see you across connected calendars.</p>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">Full name</label>
+<input class="form-input" type="text" value="Alex Watson">
+</div>
+<div>
+<label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">Job title</label>
+<input class="form-input" type="text" value="Project Manager">
+</div>
+<div class="col-span-2">
+<label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">Primary email</label>
+<input class="form-input opacity-60" type="email" value="alex.watson@rapidevelopers.com" disabled="">
+</div>
+</div>
+<div class="flex justify-end mt-6">
+<button class="px-5 py-2.5 rounded-xl squircle bg-primary text-white text-[14px] font-semibold shadow-[0_8px_20px_-6px_rgba(220,34,55,0.3)] hover:shadow-[0_10px_26px_-6px_rgba(220,34,55,0.4)] active:scale-95 transition-all">Save Changes</button>
+</div>
+</div>
+</div>
+
+<!-- Password -->
+<div class="profile-shadow rounded-card">
+<div class="rounded-card squircle bg-surface-container-lowest p-card-inner-padding">
+<p class="font-title-sm text-title-sm mb-1">Password</p>
+<p class="text-label-md text-tertiary mb-6">Use a strong password you don't use elsewhere.</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2">
+<label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">Current password</label>
+<div class="relative">
+<input class="form-input" style="padding-right: 2.75rem;" type="password" placeholder="••••••••" oninput="this.nextElementSibling.classList.toggle('hidden', this.value.length === 0)">
+<button type="button" onclick="togglePasswordVisibility(this)" class="hidden absolute inset-y-0 right-1 w-8 flex items-center justify-center text-outline hover:text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px] leading-none">visibility</span>
+</button>
+</div>
+</div>
+<div>
+<label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">New password</label>
+<div class="relative">
+<input class="form-input" style="padding-right: 2.75rem;" type="password" placeholder="••••••••" oninput="this.nextElementSibling.classList.toggle('hidden', this.value.length === 0)">
+<button type="button" onclick="togglePasswordVisibility(this)" class="hidden absolute inset-y-0 right-1 w-8 flex items-center justify-center text-outline hover:text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px] leading-none">visibility</span>
+</button>
+</div>
+</div>
+<div>
+<label class="text-label-md text-on-surface-variant font-medium mb-1.5 block">Confirm new password</label>
+<div class="relative">
+<input class="form-input" style="padding-right: 2.75rem;" type="password" placeholder="••••••••" oninput="this.nextElementSibling.classList.toggle('hidden', this.value.length === 0)">
+<button type="button" onclick="togglePasswordVisibility(this)" class="hidden absolute inset-y-0 right-1 w-8 flex items-center justify-center text-outline hover:text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px] leading-none">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex justify-end mt-6">
+<button class="px-5 py-2.5 rounded-xl squircle border border-outline-variant text-[14px] font-semibold text-on-surface hover:bg-surface-container-low transition-colors">Update Password</button>
+</div>
+</div>
+</div>
+
+<!-- Connected Calendars -->
+<div class="profile-shadow rounded-card">
+<div class="rounded-card squircle bg-surface-container-lowest p-card-inner-padding">
+<div class="flex items-center justify-between mb-1">
+<p class="font-title-sm text-title-sm">Connected Calendars</p>
+<span class="bg-primary/10 text-primary text-[11px] font-bold min-w-[18px] h-[18px] px-1.5 rounded-full flex items-center justify-center">3</span>
+</div>
+<p class="text-label-md text-tertiary mb-6">Events from these accounts are shown color-coded across your dashboard and calendar.</p>
+<div class="space-y-1">
+
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="relative w-10 h-10 shrink-0">
+<img class="w-full h-full rounded-full object-cover ring-2 ring-primary" alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEvLJMwjGC15-_F6bM6aCwWVVXsJ8ziK00FISOIaIsdzQQtyFQlioCBn8Z9b-2fHR59k18DQ3Lthf11pdhSmNbHR1jjq09ab3sHSSAhq-ObgeMXGMCYJRz6TIW1P2SWBCzI3NcXI6Iu4g9dxTan5oToqm7AJhK2iddtKdDMl0Cv10SECcapGUv6LnQmXziB6Gxmo5eS-yDdLjdF1SsTW_jbcwk-dZlGpnulG1qkMM4BPEv_zAWUBOSWA">
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full flex items-center justify-center shadow-sm">
+<svg width="10" height="10" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-[13px] font-medium text-on-surface truncate">alex.watson@rapidevelopers.com</p>
+<p class="text-[11px] text-tertiary">RapidDev &middot; Primary</p>
+</div>
+<button class="text-[13px] font-medium text-tertiary hover:text-primary transition-colors shrink-0">Disconnect</button>
+</div>
+
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="relative w-10 h-10 shrink-0">
+<img class="w-full h-full rounded-full object-cover ring-2 ring-[#2BA8D1]" alt="" src="https://randomuser.me/api/portraits/men/32.jpg">
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full flex items-center justify-center shadow-sm">
+<svg width="10" height="10" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-[13px] font-medium text-on-surface truncate">alex.w@zeroqode.com</p>
+<p class="text-[11px] text-tertiary">Zeroqode</p>
+</div>
+<button class="text-[13px] font-medium text-tertiary hover:text-primary transition-colors shrink-0">Disconnect</button>
+</div>
+
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="relative w-10 h-10 shrink-0">
+<img class="w-full h-full rounded-full object-cover ring-2 ring-blue-500" alt="" src="https://randomuser.me/api/portraits/men/68.jpg">
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full flex items-center justify-center shadow-sm">
+<svg width="10" height="10" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-[13px] font-medium text-on-surface truncate">alex.wat1@kaleo.design</p>
+<p class="text-[11px] text-tertiary">Kaleo</p>
+</div>
+<button class="text-[13px] font-medium text-tertiary hover:text-primary transition-colors shrink-0">Disconnect</button>
+</div>
+
+</div>
+<button class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-dashed border-outline-variant text-[13px] font-semibold text-on-surface-variant hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+Add Another Calendar
+</button>
+</div>
+</div>
+
+</div>
+</div>
+</main>
+</div>
+
+<script>
+function togglePasswordVisibility(btn) {
+    var input = btn.previousElementSibling;
+    var icon = btn.querySelector('span');
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.textContent = 'visibility_off';
+    } else {
+        input.type = 'password';
+        icon.textContent = 'visibility';
+    }
+}
+</script>
+
+<!-- iOS-style continuous corner smoothing (squircle) -->
+<script type="module">
+import { getSvgPath } from "https://cdn.jsdelivr.net/npm/figma-squircle@0.3.0/+esm";
+
+const SMOOTHING = 0.6;
+
+function applySquircle(el) {
+    const rect = el.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    const radius = parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0;
+    if (!radius) return;
+    const path = getSvgPath({
+        width: rect.width,
+        height: rect.height,
+        cornerRadius: radius,
+        cornerSmoothing: SMOOTHING,
+    });
+    el.style.clipPath = `path('${path}')`;
+}
+
+function applyAll() {
+    document.querySelectorAll(".squircle").forEach(applySquircle);
+}
+
+window.addEventListener("load", applyAll);
+window.addEventListener("resize", applyAll);
+
+const squircleResizeObserver = new ResizeObserver((entries) => {
+    entries.forEach((entry) => applySquircle(entry.target));
+});
+document.querySelectorAll(".squircle").forEach((el) => squircleResizeObserver.observe(el));
+</script>
+</body></html>
