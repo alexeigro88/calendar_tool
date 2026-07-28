@@ -411,8 +411,8 @@ document.addEventListener('click', function () {
 <div class="space-y-6 pt-4">
 <div class="flex items-center justify-between">
 <div>
-<h3 class="text-[22px] font-medium">Meeting Balance</h3>
-<p class="text-label-md text-tertiary mt-1">Meetings vs. protected focus time</p>
+<h3 class="text-[22px] font-medium">Time Analytics</h3>
+<p class="text-label-md text-tertiary mt-1">Meetings vs. focus time, and how your calendar breaks down</p>
 </div>
 <div class="flex items-center gap-4">
 <div class="relative">
@@ -424,7 +424,9 @@ document.addEventListener('click', function () {
 </div>
 </div>
 </div>
-<div class="bg-surface-container-lowest rounded-card squircle p-8 card-shadow relative h-[360px] flex gap-6">
+<div class="bg-surface-container-lowest rounded-card squircle p-8 card-shadow">
+<p class="text-[13px] font-semibold text-on-surface-variant uppercase tracking-wide mb-4">Trend</p>
+<div class="relative h-[360px] flex gap-6">
 <!-- Vertical week nav -->
 <div class="flex flex-col items-center justify-center gap-3 shrink-0">
 <button class="text-outline hover:text-on-surface transition-colors">
@@ -545,6 +547,89 @@ document.addEventListener('click', function () {
 <div class="absolute right-10 bottom-6 text-right">
 <h4 class="text-[48px] font-medium leading-none text-on-surface">45%</h4>
 <p class="text-label-md text-tertiary font-medium mt-1">Avg. focus time</p>
+</div>
+</div>
+<div class="my-8 border-t border-outline-variant/60"></div>
+<p class="text-[13px] font-semibold text-on-surface-variant uppercase tracking-wide mb-4">By Type</p>
+<div class="space-y-[19px]">
+<!-- Stat Row -->
+<div class="flex items-center gap-3">
+<span class="text-[13px] font-medium w-32 truncate">Event</span>
+<div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#C3CBEF] rounded-full" style="width: 71%"></div>
+</div>
+<div class="flex items-center gap-1.5 w-14 justify-end">
+<span class="text-[11px] font-bold text-tertiary">71%</span>
+<div class="w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-primary">arrow_downward</span>
+</div>
+</div>
+</div>
+<!-- Stat Row 2 -->
+<div class="flex items-center gap-3">
+<span class="text-[13px] font-medium w-32 truncate">Task</span>
+<div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#C3CBEF] rounded-full" style="width: 92%"></div>
+</div>
+<div class="flex items-center gap-1.5 w-14 justify-end">
+<span class="text-[11px] font-bold text-tertiary">92%</span>
+<div class="w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-secondary">arrow_upward</span>
+</div>
+</div>
+</div>
+<!-- Stat Row 3 -->
+<div class="flex items-center gap-3">
+<span class="text-[13px] font-medium w-32 truncate">Out of office</span>
+<div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#C3CBEF] rounded-full" style="width: 18%"></div>
+</div>
+<div class="flex items-center gap-1.5 w-14 justify-end">
+<span class="text-[11px] font-bold text-tertiary">18%</span>
+<div class="w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-primary">arrow_downward</span>
+</div>
+</div>
+</div>
+<!-- Stat Row 4 -->
+<div class="flex items-center gap-3">
+<span class="text-[13px] font-medium w-32 truncate">Focus time</span>
+<div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#C3CBEF] rounded-full" style="width: 63%"></div>
+</div>
+<div class="flex items-center gap-1.5 w-14 justify-end">
+<span class="text-[11px] font-bold text-tertiary">63%</span>
+<div class="w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-secondary">arrow_upward</span>
+</div>
+</div>
+</div>
+<!-- Stat Row 5 -->
+<div class="flex items-center gap-3">
+<span class="text-[13px] font-medium w-32 truncate">Working location</span>
+<div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#C3CBEF] rounded-full" style="width: 40%"></div>
+</div>
+<div class="flex items-center gap-1.5 w-14 justify-end">
+<span class="text-[11px] font-bold text-tertiary">40%</span>
+<div class="w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-primary">arrow_downward</span>
+</div>
+</div>
+</div>
+<!-- Stat Row 6 -->
+<div class="flex items-center gap-3">
+<span class="text-[13px] font-medium w-32 truncate">Appointment schedule</span>
+<div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#C3CBEF] rounded-full" style="width: 54%"></div>
+</div>
+<div class="flex items-center gap-1.5 w-14 justify-end">
+<span class="text-[11px] font-bold text-tertiary">54%</span>
+<div class="w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-secondary">arrow_upward</span>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -714,90 +799,56 @@ ethan@rapidevelopers.com
                     <span class="material-symbols-outlined text-[20px]">chevron_right</span>
 </a>
 </div>
-<!-- Meeting Types Section -->
+<!-- Booking Links Performance Section -->
 <div class="px-8 pt-2 pb-8">
-<h3 class="text-[22px] font-medium mb-1">Meeting Types</h3>
-<p class="text-label-md text-tertiary mb-4">Most common meeting types</p>
+<h3 class="text-[22px] font-medium mb-1">Booking Links</h3>
+<p class="text-label-md text-tertiary mb-4">Bookings by source</p>
 <div class="space-y-[19px]">
-<!-- Stat Row -->
+<div>
 <div class="flex items-center gap-3">
-<span class="text-[13px] font-medium w-32 truncate">Event</span>
+<span class="text-[13px] font-medium w-28 truncate">rd_landing</span>
 <div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
-<div class="h-full bg-[#C3CBEF] rounded-full" style="width: 71%"></div>
+<div class="h-full bg-primary rounded-full" style="width: 100%"></div>
 </div>
-<div class="flex items-center gap-1.5 w-14 justify-end">
-<span class="text-[11px] font-bold text-tertiary">71%</span>
-<div class="w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
-<span class="material-symbols-outlined text-[12px] text-primary">arrow_downward</span>
+<span class="text-[12px] font-semibold text-on-surface w-6 text-right">12</span>
 </div>
+<p class="text-[11px] text-tertiary pl-[124px] mt-1 truncate">alex.watson@rapidevelopers.com</p>
 </div>
-</div>
-<!-- Stat Row 2 -->
+<div>
 <div class="flex items-center gap-3">
-<span class="text-[13px] font-medium w-32 truncate">Task</span>
+<span class="text-[13px] font-medium w-28 truncate">zq_linkedin</span>
 <div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
-<div class="h-full bg-[#C3CBEF] rounded-full" style="width: 92%"></div>
+<div class="h-full bg-[#2BA8D1] rounded-full" style="width: 58%"></div>
 </div>
-<div class="flex items-center gap-1.5 w-14 justify-end">
-<span class="text-[11px] font-bold text-tertiary">92%</span>
-<div class="w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
-<span class="material-symbols-outlined text-[12px] text-secondary">arrow_upward</span>
+<span class="text-[12px] font-semibold text-on-surface w-6 text-right">7</span>
 </div>
+<p class="text-[11px] text-tertiary pl-[124px] mt-1 truncate">alex.w@zeroqode.com</p>
 </div>
-</div>
-<!-- Stat Row 3 -->
+<div>
 <div class="flex items-center gap-3">
-<span class="text-[13px] font-medium w-32 truncate">Out of office</span>
+<span class="text-[13px] font-medium w-28 truncate">email_signature</span>
 <div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
-<div class="h-full bg-[#C3CBEF] rounded-full" style="width: 18%"></div>
+<div class="h-full bg-primary rounded-full" style="width: 42%"></div>
 </div>
-<div class="flex items-center gap-1.5 w-14 justify-end">
-<span class="text-[11px] font-bold text-tertiary">18%</span>
-<div class="w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
-<span class="material-symbols-outlined text-[12px] text-primary">arrow_downward</span>
+<span class="text-[12px] font-semibold text-on-surface w-6 text-right">5</span>
 </div>
+<p class="text-[11px] text-tertiary pl-[124px] mt-1 truncate">alex.watson@rapidevelopers.com</p>
 </div>
-</div>
-<!-- Stat Row 4 -->
+<div>
 <div class="flex items-center gap-3">
-<span class="text-[13px] font-medium w-32 truncate">Focus time</span>
+<span class="text-[13px] font-medium w-28 truncate">kaleo_referral</span>
 <div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
-<div class="h-full bg-[#C3CBEF] rounded-full" style="width: 63%"></div>
+<div class="h-full bg-blue-500 rounded-full" style="width: 25%"></div>
 </div>
-<div class="flex items-center gap-1.5 w-14 justify-end">
-<span class="text-[11px] font-bold text-tertiary">63%</span>
-<div class="w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
-<span class="material-symbols-outlined text-[12px] text-secondary">arrow_upward</span>
+<span class="text-[12px] font-semibold text-on-surface w-6 text-right">3</span>
 </div>
+<p class="text-[11px] text-tertiary pl-[124px] mt-1 truncate">alex.wat1@kaleo.design</p>
 </div>
 </div>
-<!-- Stat Row 5 -->
-<div class="flex items-center gap-3">
-<span class="text-[13px] font-medium w-32 truncate">Working location</span>
-<div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
-<div class="h-full bg-[#C3CBEF] rounded-full" style="width: 40%"></div>
-</div>
-<div class="flex items-center gap-1.5 w-14 justify-end">
-<span class="text-[11px] font-bold text-tertiary">40%</span>
-<div class="w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
-<span class="material-symbols-outlined text-[12px] text-primary">arrow_downward</span>
-</div>
-</div>
-</div>
-<!-- Stat Row 6 -->
-<div class="flex items-center gap-3">
-<span class="text-[13px] font-medium w-32 truncate">Appointment schedule</span>
-<div class="flex-1 h-1.5 bg-surface-container rounded-full overflow-hidden">
-<div class="h-full bg-[#C3CBEF] rounded-full" style="width: 54%"></div>
-</div>
-<div class="flex items-center gap-1.5 w-14 justify-end">
-<span class="text-[11px] font-bold text-tertiary">54%</span>
-<div class="w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
-<span class="material-symbols-outlined text-[12px] text-secondary">arrow_upward</span>
-</div>
-</div>
-</div>
-</div>
+<a class="mt-4 flex items-center justify-center gap-2 text-[14px] font-medium text-primary hover:opacity-80 transition-opacity" href="settings.html">
+                    Manage Booking Links
+                    <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</a>
 </div>
 </aside>
 </div>

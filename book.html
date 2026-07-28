@@ -1,0 +1,543 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Book a meeting</title>
+<link href="logo_favicon.svg" rel="icon" type="image/svg+xml">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#EBEFF3",
+                        "outline": "#9098A6",
+                        "surface-container-low": "#EBEFF3",
+                        "surface-container": "#EBEFF3",
+                        "outline-variant": "#EBEFF3",
+                        "secondary": "#10123B",
+                        "tertiary": "#9CA3AF",
+                        "on-surface": "#1A2028",
+                        "primary": "#DC2237",
+                        "on-primary": "#FFFFFF",
+                        "surface-container-lowest": "#FFFFFF",
+                        "surface": "#F9FAFB",
+                        "on-surface-variant": "#374151"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "card": "24px"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "card-inner-padding": "2rem",
+                        "container-padding": "3rem"
+                    },
+                    "fontFamily": {
+                        "title-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #F9FAFB;
+            color: #1A2028;
+            font-family: 'Manrope', sans-serif;
+        }
+        .card-shadow {
+            box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.05), 0 2px 8px -2px rgba(0, 0, 0, 0.03);
+        }
+        .profile-shadow {
+            box-shadow: 0 12px 60px -6px rgba(26, 32, 40, 0.05), 0 6px 32px -3px rgba(26, 32, 40, 0.03);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(188, 200, 205, 0.15);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #D8DEE3;
+            border-radius: 10px;
+        }
+        :root {
+            --brand: #DC2237;
+            --brand-rgb: 220, 34, 55;
+        }
+        .brand-bg { background-color: var(--brand); }
+        .brand-text { color: var(--brand); }
+        .brand-border { border-color: var(--brand) !important; }
+        .brand-bg-soft { background-color: rgba(var(--brand-rgb), 0.08); }
+        .slot-open {
+            border: 1px solid rgba(var(--brand-rgb), 0.35);
+            color: var(--brand);
+            background: #fff;
+            transition: background-color .15s ease, color .15s ease, transform .1s ease;
+        }
+        .slot-open:hover {
+            background-color: var(--brand);
+            color: #fff;
+        }
+        .slot-open:active { transform: scale(0.97); }
+        .slot-busy {
+            border: 1px solid #EBEFF3;
+            color: #9CA3AF;
+            background: #F3F4F6;
+        }
+        .view-toggle-btn {
+            color: #374151;
+        }
+        .view-toggle-btn.active {
+            background: #FFFFFF;
+            color: var(--brand);
+            box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.05), 0 2px 8px -2px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+<div class="w-full min-h-screen flex flex-col" style="font-family: Manrope, sans-serif;">
+
+<!-- Brand header -->
+<header class="w-full border-b border-outline-variant/60 bg-white">
+<div class="max-w-7xl mx-auto px-6 py-5 flex items-center gap-3">
+<div id="brandLogo" class="w-10 h-10 rounded-xl brand-bg flex items-center justify-center text-white shrink-0">
+<svg width="16" height="18" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26.619 26.348C26.619 27.2048 26.2745 28.0265 25.6612 28.6324C25.0479 29.2382 24.2161 29.5786 23.3488 29.5786H23.192C22.3247 29.5786 21.493 29.2382 20.8797 28.6324C20.2664 28.0265 19.9219 27.2048 19.9219 26.348V3.23057C19.9219 2.37377 20.2664 1.55206 20.8797 0.946213C21.493 0.340363 22.3247 0 23.192 0H23.3488C24.2161 0 25.0479 0.340363 25.6612 0.946213C26.2745 1.55206 26.619 2.37377 26.619 3.23057V26.348ZM25.3811 15.8247C25.3811 15.289 25.1657 14.7753 24.7822 14.3965C24.3988 14.0177 23.8787 13.8048 23.3365 13.8048H23.2085C22.6663 13.8048 22.1462 14.0177 21.7628 14.3965C21.3793 14.7753 21.1639 15.289 21.1639 15.8247V26.24C21.1639 26.7757 21.3793 27.2895 21.7628 27.6683C22.1462 28.0471 22.6663 28.2599 23.2085 28.2599H23.3365C23.8787 28.2599 24.3988 28.0471 24.7822 27.6683C25.1657 27.2895 25.3811 26.7757 25.3811 26.24V15.8247Z" fill="currentColor"/>
+<path d="M16.6618 26.3689C16.6618 26.79 16.5778 27.2069 16.4147 27.5959C16.2516 27.9849 16.0126 28.3383 15.7112 28.636C15.4098 28.9337 15.0521 29.1699 14.6583 29.331C14.2646 29.4921 13.8425 29.5751 13.4164 29.5751H13.2142C12.3534 29.5751 11.5279 29.2373 10.9193 28.636C10.3107 28.0347 9.96875 27.2193 9.96875 26.3689V10.8663C9.96875 10.4452 10.0527 10.0283 10.2158 9.63934C10.3789 9.25036 10.6179 8.89692 10.9193 8.59921C11.5279 7.99794 12.3534 7.66016 13.2142 7.66016H13.4164C13.8425 7.66016 14.2646 7.74309 14.6583 7.90421C15.0521 8.06533 15.4098 8.30149 15.7112 8.59921C16.0126 8.89692 16.2516 9.25036 16.4147 9.63934C16.5778 10.0283 16.6618 10.4452 16.6618 10.8663V26.3689ZM15.4176 20.1585C15.4176 19.6304 15.2053 19.1239 14.8273 18.7504C14.4492 18.377 13.9365 18.1672 13.4019 18.1672H13.2286C12.694 18.1672 12.1813 18.377 11.8033 18.7504C11.4252 19.1239 11.2129 19.6304 11.2129 20.1585V26.2609C11.2129 26.7891 11.4252 27.2956 11.8033 27.669C12.1813 28.0425 12.694 28.2523 13.2286 28.2523H13.4019C13.9365 28.2523 14.4492 28.0425 14.8273 27.669C15.2053 27.2956 15.4176 26.7891 15.4176 26.2609V20.1585Z" fill="currentColor"/>
+<path d="M23.3444 13.8047H23.2165C22.0873 13.8047 21.1719 14.709 21.1719 15.8246V26.2398C21.1719 27.3554 22.0873 28.2597 23.2165 28.2597H23.3444C24.4736 28.2597 25.389 27.3554 25.389 26.2398V15.8246C25.389 14.709 24.4736 13.8047 23.3444 13.8047Z" fill="currentColor"/>
+<path d="M6.63515 26.4777C6.63227 26.885 6.5482 27.2879 6.38774 27.6631C6.22727 28.0384 5.99356 28.3788 5.69993 28.6648C5.40631 28.9509 5.05853 29.177 4.67645 29.3303C4.29438 29.4835 3.88548 29.5609 3.47312 29.5581L3.11825 29.5557C2.28544 29.5499 1.48905 29.2176 0.904285 28.6317C0.319515 28.0459 -0.00573844 27.2546 7.66534e-05 26.4319L0.0397312 20.8188C0.0426094 20.4114 0.126681 20.0086 0.287146 19.6333C0.447611 19.258 0.681326 18.9177 0.974948 18.6316C1.26857 18.3456 1.61635 18.1195 1.99843 17.9662C2.3805 17.8129 2.7894 17.7355 3.20177 17.7384L3.55663 17.7408C4.38944 17.7466 5.18583 18.0789 5.7706 18.6647C6.35537 19.2505 6.68062 20.0418 6.6748 20.8646L6.63515 26.4777ZM5.40709 25.1117C5.40885 24.8635 5.36111 24.6175 5.26662 24.3876C5.17213 24.1577 5.03272 23.9485 4.85636 23.7718C4.68001 23.5951 4.47015 23.4545 4.23878 23.358C4.00741 23.2614 3.75906 23.2108 3.5079 23.2091L3.19842 23.207C2.69119 23.2035 2.20332 23.3992 1.84215 23.751C1.48097 24.1029 1.27608 24.5821 1.27253 25.0832L1.26366 26.3387C1.26191 26.5868 1.30964 26.8328 1.40413 27.0627C1.49863 27.2926 1.63803 27.5019 1.81439 27.6785C1.99075 27.8552 2.2006 27.9958 2.43197 28.0924C2.66334 28.1889 2.91169 28.2395 3.16285 28.2412L3.47233 28.2434C3.97957 28.2469 4.46743 28.0512 4.82861 27.6993C5.18978 27.3475 5.39468 26.8683 5.39822 26.3672L5.40709 25.1117Z" fill="currentColor"/>
+<path d="M13.3922 18.1641H13.2189C12.1056 18.1641 11.2031 19.0556 11.2031 20.1554V26.2578C11.2031 27.3576 12.1056 28.2492 13.2189 28.2492H13.3922C14.5054 28.2492 15.4079 27.3576 15.4079 26.2578V20.1554C15.4079 19.0556 14.5054 18.1641 13.3922 18.1641Z" fill="currentColor"/>
+<path d="M3.51107 23.2067L3.2016 23.2046C2.14533 23.1973 1.28308 24.0373 1.27571 25.0808L1.26684 26.3363C1.25946 27.3798 2.10976 28.2316 3.16602 28.2389L3.47549 28.241C4.53176 28.2483 5.39401 27.4083 5.40138 26.3648L5.41026 25.1093C5.41763 24.0658 4.56734 23.214 3.51107 23.2067Z" fill="currentColor"/>
+</svg>
+</div>
+<div>
+<p id="brandName" class="text-[14px] font-semibold text-on-surface leading-none">RapidDev</p>
+<p class="text-[11px] text-tertiary mt-1">Scheduling page</p>
+</div>
+</div>
+</header>
+
+<main class="flex-1 max-w-7xl w-full mx-auto px-6 py-10">
+
+<!-- Booking view -->
+<div id="bookingView">
+
+<div class="profile-shadow rounded-card overflow-hidden mb-8">
+<div class="bg-surface-container-lowest flex flex-col lg:flex-row">
+
+<!-- Left: host / meeting info -->
+<div class="lg:w-[300px] shrink-0 p-8 lg:border-r lg:border-outline-variant/60">
+<img alt="Alex Watson" class="w-14 h-14 rounded-full object-cover mb-4" style="box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--brand), 0 4px 14px -4px rgba(26,32,40,0.25);" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEvLJMwjGC15-_F6bM6aCwWVVXsJ8ziK00FISOIaIsdzQQtyFQlioCBn8Z9b-2fHR59k18DQ3Lthf11pdhSmNbHR1jjq09ab3sHSSAhq-ObgeMXGMCYJRz6TIW1P2SWBCzI3NcXI6Iu4g9dxTan5oToqm7AJhK2iddtKdDMl0Cv10SECcapGUv6LnQmXziB6Gxmo5eS-yDdLjdF1SsTW_jbcwk-dZlGpnulG1qkMM4BPEv_zAWUBOSWA">
+<p class="text-[16px] font-semibold text-on-surface leading-tight">Alex Watson</p>
+<p class="text-[13px] font-medium brand-text mt-0.5">Project Manager</p>
+<h1 class="text-[20px] font-medium text-on-surface leading-tight mt-6">30 Minute Meeting</h1>
+<p class="text-[13px] text-on-surface-variant mt-2 flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">schedule</span>30 min &middot; <span class="material-symbols-outlined text-[16px]">videocam</span>Google Meet</p>
+<p class="text-[13px] text-on-surface-variant leading-relaxed mt-5">Pick an open time to book a call with Alex. You'll both get a calendar invite the moment it's confirmed &mdash; no back-and-forth needed.</p>
+</div>
+
+<!-- Right: calendar -->
+<div class="flex-1 min-w-0 p-8">
+
+<div class="flex items-center justify-between flex-wrap gap-3 mb-5">
+<p class="font-title-sm text-title-sm">Select a time</p>
+<div class="flex items-center gap-1 bg-surface-container-low rounded-full p-1">
+<button class="view-toggle-btn active px-3 py-1.5 rounded-full text-[12px] font-semibold transition-colors" data-view="week">Week</button>
+<button class="view-toggle-btn px-3 py-1.5 rounded-full text-[12px] font-semibold transition-colors" data-view="day">Day</button>
+<button class="view-toggle-btn px-3 py-1.5 rounded-full text-[12px] font-semibold transition-colors" data-view="month">Month</button>
+</div>
+</div>
+
+<div class="flex items-center justify-between flex-wrap gap-3 mb-6">
+<div class="flex items-center gap-2">
+<button id="navPrev" class="w-9 h-9 rounded-full bg-white card-shadow flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
+<button id="navNext" class="w-9 h-9 rounded-full bg-white card-shadow flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+<p id="rangeLabel" class="text-[14px] font-semibold text-on-surface ml-1">Jul 27 &ndash; Aug 2</p>
+</div>
+<p class="text-[12px] text-tertiary">Times shown in your local timezone</p>
+</div>
+
+<!-- Week view -->
+<div id="weekView">
+<div id="slotsGrid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4"></div>
+</div>
+
+<!-- Day view -->
+<div id="dayView" class="hidden">
+<div id="dayPills" class="flex items-center gap-2 mb-5 overflow-x-auto custom-scrollbar pb-1"></div>
+<div id="daySlotsList" class="grid grid-cols-2 sm:grid-cols-3 gap-3"></div>
+</div>
+
+<!-- Month view -->
+<div id="monthView" class="hidden">
+<div id="monthWeekdayHeader" class="grid grid-cols-7 gap-2 mb-2"></div>
+<div id="monthGrid" class="grid grid-cols-7 gap-2"></div>
+</div>
+
+</div>
+</div>
+</div>
+
+<p class="text-center text-[11px] text-tertiary mt-8">Powered by <span class="font-semibold">calendar-tool</span></p>
+</div>
+
+<!-- Booking form (hidden until a slot is picked) -->
+<div id="formView" class="hidden">
+<div class="max-w-3xl mx-auto">
+<button id="backToSlots" class="flex items-center gap-1.5 text-[13px] font-medium text-tertiary hover:text-on-surface transition-colors mb-6">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+Back
+</button>
+<div class="profile-shadow rounded-card overflow-hidden">
+<div class="bg-surface-container-lowest flex flex-col lg:flex-row">
+
+<!-- Left: booking summary -->
+<div class="lg:w-[300px] shrink-0 p-8 lg:border-r lg:border-outline-variant/60">
+<img alt="Alex Watson" class="w-14 h-14 rounded-full object-cover mb-4" style="box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--brand), 0 4px 14px -4px rgba(26,32,40,0.25);" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEvLJMwjGC15-_F6bM6aCwWVVXsJ8ziK00FISOIaIsdzQQtyFQlioCBn8Z9b-2fHR59k18DQ3Lthf11pdhSmNbHR1jjq09ab3sHSSAhq-ObgeMXGMCYJRz6TIW1P2SWBCzI3NcXI6Iu4g9dxTan5oToqm7AJhK2iddtKdDMl0Cv10SECcapGUv6LnQmXziB6Gxmo5eS-yDdLjdF1SsTW_jbcwk-dZlGpnulG1qkMM4BPEv_zAWUBOSWA">
+<p class="text-[16px] font-semibold text-on-surface leading-tight">Alex Watson</p>
+<p class="text-[13px] font-medium brand-text mt-0.5">Project Manager</p>
+<h1 class="text-[20px] font-medium text-on-surface leading-tight mt-6">30 Minute Meeting</h1>
+<p class="text-[13px] text-on-surface-variant mt-2 flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">schedule</span>30 min &middot; <span class="material-symbols-outlined text-[16px]">videocam</span>Google Meet</p>
+<div class="mt-6 pt-5 border-t border-outline-variant/60">
+<p class="text-[11px] font-semibold text-tertiary uppercase tracking-wide mb-1">Selected time</p>
+<p id="formSelectedSlot" class="text-[14px] font-semibold brand-text">Mon, Jul 27 &middot; 10:00 AM</p>
+</div>
+</div>
+
+<!-- Right: compact form -->
+<div class="flex-1 min-w-0 p-8">
+<p class="font-title-sm text-title-sm mb-6">Enter your details</p>
+<div class="space-y-4">
+<div>
+<label class="text-[12px] text-on-surface-variant font-medium mb-1.5 block">Full name</label>
+<input class="form-input" id="guestName" placeholder="Jane Cooper" type="text">
+</div>
+<div>
+<label class="text-[12px] text-on-surface-variant font-medium mb-1.5 block">Email</label>
+<input class="form-input" id="guestEmail" placeholder="jane@company.com" type="email">
+</div>
+<div>
+<label class="text-[12px] text-on-surface-variant font-medium mb-1.5 block">What would you like to discuss? (optional)</label>
+<textarea class="form-input" id="guestNotes" placeholder="Add any details that will help prepare for the meeting" rows="3"></textarea>
+</div>
+</div>
+<button id="confirmBookingBtn" class="w-full mt-6 px-5 py-3 rounded-xl brand-bg text-white text-[14px] font-semibold shadow-[0_8px_20px_-6px_rgba(0,0,0,0.25)] hover:opacity-90 active:scale-[0.98] transition-all">Confirm Booking</button>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<!-- Confirmation -->
+<div id="confirmView" class="hidden text-center py-10">
+<div class="w-16 h-16 rounded-full brand-bg-soft flex items-center justify-center mx-auto mb-5">
+<span class="material-symbols-outlined text-[32px] brand-text">check_circle</span>
+</div>
+<h1 class="text-[22px] font-medium text-on-surface mb-2">You're booked!</h1>
+<p class="text-[14px] text-on-surface-variant mb-1">This event has been added to both calendars.</p>
+<p id="confirmEmailNote" class="text-[13px] text-tertiary mb-6 flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[16px]">mail</span>Confirmation sent to <span id="confirmEmail" class="font-medium text-on-surface-variant">jane@company.com</span></p>
+<div class="profile-shadow rounded-card max-w-sm mx-auto text-left">
+<div class="rounded-card bg-surface-container-lowest p-card-inner-padding">
+<p class="text-[12px] text-tertiary uppercase tracking-wide font-semibold mb-1">30 Minute Meeting</p>
+<p id="confirmSlot" class="text-[15px] font-medium text-on-surface mb-3">Mon, Jul 27 &middot; 10:00 AM</p>
+<div class="flex items-center gap-2.5 pt-3 border-t border-outline-variant/60">
+<img alt="Alex Watson" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEvLJMwjGC15-_F6bM6aCwWVVXsJ8ziK00FISOIaIsdzQQtyFQlioCBn8Z9b-2fHR59k18DQ3Lthf11pdhSmNbHR1jjq09ab3sHSSAhq-ObgeMXGMCYJRz6TIW1P2SWBCzI3NcXI6Iu4g9dxTan5oToqm7AJhK2iddtKdDMl0Cv10SECcapGUv6LnQmXziB6Gxmo5eS-yDdLjdF1SsTW_jbcwk-dZlGpnulG1qkMM4BPEv_zAWUBOSWA">
+<p class="text-[13px] text-on-surface-variant">with Alex Watson</p>
+</div>
+</div>
+</div>
+</div>
+
+</main>
+</div>
+
+<style>
+        .form-input {
+            width: 100%;
+            border-radius: 0.5rem !important;
+            border: 1px solid #EBEFF3 !important;
+            background-color: #FFFFFF !important;
+            padding: 0.625rem 1rem;
+            font-size: 14px !important;
+            color: #1A2028;
+            box-shadow: none;
+            transition: border-color .15s ease, box-shadow .15s ease;
+        }
+        .form-input::placeholder { color: #9CA3AF; }
+        .form-input:hover { border-color: #9098A6 !important; }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--brand);
+            box-shadow: inset 0 0 0 2px rgba(var(--brand-rgb), 0.18);
+        }
+    </style>
+
+<script>
+var BRANDS = {
+    rapiddev: { name: 'RapidDev', color: '#DC2237', rgb: '220, 34, 55' },
+    zeroqode: { name: 'Zeroqode', color: '#2BA8D1', rgb: '43, 168, 209' },
+    kaleo:    { name: 'Kaleo',    color: '#3B82F6', rgb: '59, 130, 246' }
+};
+
+var params = new URLSearchParams(window.location.search);
+var brandKey = params.get('brand') || 'rapiddev';
+var source = params.get('src') || '';
+var brand = BRANDS[brandKey] || BRANDS.rapiddev;
+
+document.documentElement.style.setProperty('--brand', brand.color);
+document.documentElement.style.setProperty('--brand-rgb', brand.rgb);
+document.getElementById('brandName').textContent = brand.name;
+document.title = brand.name + ' | Book a meeting';
+
+var STANDARD_TIMES = ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM'];
+
+var DAYS = [
+    { label: 'Mon', date: 'Jul 27', slots: [
+        { time: '9:00 AM', busy: false }, { time: '10:00 AM', busy: true }, { time: '11:00 AM', busy: false },
+        { time: '1:00 PM', busy: true }, { time: '2:00 PM', busy: false }, { time: '3:00 PM', busy: false }, { time: '4:00 PM', busy: true },
+        { time: '5:00 PM', busy: false }, { time: '6:00 PM', busy: false }
+    ]},
+    { label: 'Tue', date: 'Jul 28', slots: [
+        { time: '9:00 AM', busy: true }, { time: '10:00 AM', busy: false }, { time: '11:00 AM', busy: false },
+        { time: '1:00 PM', busy: false }, { time: '2:00 PM', busy: true }, { time: '3:00 PM', busy: true }, { time: '4:00 PM', busy: false },
+        { time: '5:00 PM', busy: true }, { time: '6:00 PM', busy: false }
+    ]},
+    { label: 'Wed', date: 'Jul 29', slots: [
+        { time: '9:00 AM', busy: false }, { time: '10:00 AM', busy: false }, { time: '11:00 AM', busy: true },
+        { time: '1:00 PM', busy: false }, { time: '2:00 PM', busy: false }, { time: '3:00 PM', busy: true }, { time: '4:00 PM', busy: false },
+        { time: '5:00 PM', busy: false }, { time: '6:00 PM', busy: true }
+    ]},
+    { label: 'Thu', date: 'Jul 30', slots: [
+        { time: '9:00 AM', busy: true }, { time: '10:00 AM', busy: true }, { time: '11:00 AM', busy: false },
+        { time: '1:00 PM', busy: false }, { time: '2:00 PM', busy: false }, { time: '3:00 PM', busy: false }, { time: '4:00 PM', busy: true },
+        { time: '5:00 PM', busy: false }, { time: '6:00 PM', busy: false }
+    ]},
+    { label: 'Fri', date: 'Jul 31', slots: [
+        { time: '9:00 AM', busy: false }, { time: '10:00 AM', busy: false }, { time: '11:00 AM', busy: false },
+        { time: '1:00 PM', busy: true }, { time: '2:00 PM', busy: true }, { time: '3:00 PM', busy: false }, { time: '4:00 PM', busy: false },
+        { time: '5:00 PM', busy: true }, { time: '6:00 PM', busy: false }
+    ]},
+    { label: 'Sat', date: 'Aug 1', slots: [] },
+    { label: 'Sun', date: 'Aug 2', slots: [] }
+];
+
+var selectedSlot = null;
+
+function pickSlot(day, slot) {
+    selectedSlot = day.label + ', ' + day.date + ' · ' + slot.time;
+    document.getElementById('formSelectedSlot').textContent = selectedSlot;
+    document.getElementById('bookingView').classList.add('hidden');
+    document.getElementById('formView').classList.remove('hidden');
+}
+
+/* ---------- Week view ---------- */
+var grid = document.getElementById('slotsGrid');
+DAYS.forEach(function (day) {
+    var col = document.createElement('div');
+    col.className = 'flex flex-col gap-2 min-w-[92px]';
+
+    var header = document.createElement('div');
+    header.className = 'text-center mb-1';
+    header.innerHTML = '<p class="text-[11px] font-semibold text-tertiary uppercase tracking-wide">' + day.label + '</p><p class="text-[13px] font-medium text-on-surface">' + day.date + '</p>';
+    col.appendChild(header);
+
+    var daySlots = day.slots.length ? day.slots : STANDARD_TIMES.map(function (t) { return { time: t, busy: true }; });
+    daySlots.forEach(function (slot) {
+        var btn = document.createElement('button');
+        btn.className = 'w-full py-2 rounded-lg squircle text-[12px] font-medium ' + (slot.busy ? 'slot-busy cursor-not-allowed' : 'slot-open cursor-pointer');
+        btn.textContent = slot.time;
+        btn.disabled = slot.busy;
+        if (!slot.busy) {
+            btn.addEventListener('click', function () { pickSlot(day, slot); });
+        }
+        col.appendChild(btn);
+    });
+    grid.appendChild(col);
+});
+
+/* ---------- Day view ---------- */
+var currentDayIndex = 1; /* default: Tue (today) */
+
+function renderDayView(index) {
+    currentDayIndex = index;
+    var pillsEl = document.getElementById('dayPills');
+    pillsEl.innerHTML = '';
+    DAYS.forEach(function (day, i) {
+        var pill = document.createElement('button');
+        pill.className = 'shrink-0 px-3.5 py-2 rounded-full text-[12px] font-medium border transition-colors ' +
+            (i === index ? 'brand-bg text-white border-transparent' : 'bg-white text-on-surface-variant border-outline-variant hover:border-primary hover:text-primary');
+        pill.innerHTML = day.label + ' <span class="opacity-70">' + day.date + '</span>';
+        pill.addEventListener('click', function () { renderDayView(i); });
+        pillsEl.appendChild(pill);
+    });
+
+    var list = document.getElementById('daySlotsList');
+    list.innerHTML = '';
+    var day = DAYS[index];
+    if (!day.slots.length) {
+        var none = document.createElement('p');
+        none.className = 'text-[13px] text-tertiary col-span-full text-center py-10';
+        none.textContent = 'No open slots on ' + day.label + ', ' + day.date + '.';
+        list.appendChild(none);
+        return;
+    }
+    day.slots.forEach(function (slot) {
+        var btn = document.createElement('button');
+        btn.className = 'py-3 rounded-lg squircle text-[13px] font-medium ' + (slot.busy ? 'slot-busy cursor-not-allowed' : 'slot-open cursor-pointer');
+        btn.textContent = slot.busy ? 'Booked' : slot.time;
+        btn.disabled = slot.busy;
+        if (!slot.busy) {
+            btn.addEventListener('click', function () { pickSlot(day, slot); });
+        }
+        list.appendChild(btn);
+    });
+    if (window.applySquircle) window.applySquircle();
+}
+
+/* ---------- Month view ---------- */
+var monthBuilt = false;
+function buildMonthGrid() {
+    if (monthBuilt) return;
+    monthBuilt = true;
+
+    var weekdayLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    document.getElementById('monthWeekdayHeader').innerHTML = weekdayLabels.map(function (l) {
+        return '<p class="text-[10px] font-semibold text-tertiary uppercase tracking-wide text-center">' + l + '</p>';
+    }).join('');
+
+    var monthLabels = ['Jul', 'Jul', 'Jul', 'Jul', 'Jul', 'Aug', 'Aug',
+        'Aug', 'Aug', 'Aug', 'Aug', 'Aug', 'Aug', 'Aug',
+        'Aug', 'Aug', 'Aug', 'Aug', 'Aug', 'Aug', 'Aug',
+        'Aug', 'Aug', 'Aug', 'Aug', 'Aug', 'Aug', 'Aug',
+        'Aug', 'Aug', 'Aug', 'Aug', 'Aug', 'Aug', 'Aug'];
+    var dateNums = [27, 28, 29, 30, 31, 1, 2,
+        3, 4, 5, 6, 7, 8, 9,
+        10, 11, 12, 13, 14, 15, 16,
+        17, 18, 19, 20, 21, 22, 23,
+        24, 25, 26, 27, 28, 29, 30];
+
+    var monthGrid = document.getElementById('monthGrid');
+    monthGrid.innerHTML = '';
+
+    dateNums.forEach(function (d, i) {
+        var col = i % 7;
+        var isWeekend = col === 5 || col === 6;
+        var isToday = monthLabels[i] === 'Jul' && d === 28;
+        var cell = document.createElement('button');
+        var base = 'aspect-square rounded-xl flex flex-col items-center justify-center gap-1 text-[13px] transition-colors ';
+
+        if (isToday) {
+            cell.className = base + 'brand-bg text-white font-semibold';
+        } else if (isWeekend) {
+            cell.className = base + 'text-tertiary cursor-default';
+            cell.disabled = true;
+        } else {
+            cell.className = base + 'text-on-surface hover:bg-surface-container-low cursor-pointer border border-transparent hover:border-outline-variant';
+        }
+
+        var dotHtml = !isWeekend ? '<span class="w-1 h-1 rounded-full ' + (isToday ? 'bg-white' : 'brand-bg') + '"></span>' : '';
+        cell.innerHTML = '<span>' + d + '</span>' + dotHtml;
+
+        if (!isWeekend) {
+            cell.addEventListener('click', function () {
+                setView('day');
+                renderDayView(col < DAYS.length ? col : col % DAYS.length);
+            });
+        }
+        monthGrid.appendChild(cell);
+    });
+}
+
+/* ---------- View switcher ---------- */
+var viewToggleBtns = document.querySelectorAll('.view-toggle-btn');
+var weekViewEl = document.getElementById('weekView');
+var dayViewEl = document.getElementById('dayView');
+var monthViewEl = document.getElementById('monthView');
+
+function setView(view) {
+    weekViewEl.classList.toggle('hidden', view !== 'week');
+    dayViewEl.classList.toggle('hidden', view !== 'day');
+    monthViewEl.classList.toggle('hidden', view !== 'month');
+    viewToggleBtns.forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-view') === view);
+    });
+    if (view === 'day') renderDayView(currentDayIndex);
+    if (view === 'month') buildMonthGrid();
+}
+
+viewToggleBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () { setView(btn.getAttribute('data-view')); });
+});
+
+/* ---------- Prev / next range nav ---------- */
+var weekRanges = ['Jul 20 – Jul 26', 'Jul 27 – Aug 2', 'Aug 3 – Aug 9'];
+var weekRangeIndex = 1;
+function updateRangeLabel() {
+    document.getElementById('rangeLabel').textContent = weekRanges[weekRangeIndex];
+}
+document.getElementById('navPrev').addEventListener('click', function () {
+    weekRangeIndex = Math.max(0, weekRangeIndex - 1);
+    updateRangeLabel();
+});
+document.getElementById('navNext').addEventListener('click', function () {
+    weekRangeIndex = Math.min(weekRanges.length - 1, weekRangeIndex + 1);
+    updateRangeLabel();
+});
+
+document.getElementById('backToSlots').addEventListener('click', function () {
+    document.getElementById('formView').classList.add('hidden');
+    document.getElementById('bookingView').classList.remove('hidden');
+});
+
+document.getElementById('confirmBookingBtn').addEventListener('click', function () {
+    var email = document.getElementById('guestEmail').value.trim();
+    document.getElementById('confirmSlot').textContent = selectedSlot || '';
+    document.getElementById('confirmEmail').textContent = email || 'your email';
+    document.getElementById('formView').classList.add('hidden');
+    document.getElementById('confirmView').classList.remove('hidden');
+});
+</script>
+
+<!-- iOS-style continuous corner smoothing (squircle) applied to time slots -->
+<script type="module">
+import { getSvgPath } from "https://cdn.jsdelivr.net/npm/figma-squircle@0.3.0/+esm";
+
+const SMOOTHING = 0.6; // 60%, matches iOS "continuous corners"
+
+function applySquircle(el) {
+    const rect = el.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    const radius = parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0;
+    if (!radius) return;
+    const path = getSvgPath({
+        width: rect.width,
+        height: rect.height,
+        cornerRadius: radius,
+        cornerSmoothing: SMOOTHING,
+    });
+    el.style.clipPath = `path('${path}')`;
+}
+
+function applyAll() {
+    document.querySelectorAll(".squircle").forEach(applySquircle);
+}
+
+window.addEventListener("load", applyAll);
+window.addEventListener("resize", applyAll);
+window.applySquircle = applyAll;
+</script>
+</body></html>
