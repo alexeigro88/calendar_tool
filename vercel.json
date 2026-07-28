@@ -1,6 +1,6 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/book/:handle", "destination": "/book.html" }
-  ]
+    "cleanUrls": true,
+    "rewrites": [
+          { "source": "/book/(.*)", "destination": "/book.html" }
+    ]
 }
