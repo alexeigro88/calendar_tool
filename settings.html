@@ -118,6 +118,11 @@
             color: #1A2028;
             font-family: 'Manrope', sans-serif;
         }
+        button:focus,
+        button:focus-visible {
+            outline: none !important;
+            box-shadow: none;
+        }
         .card-shadow {
             box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.05), 0 2px 8px -2px rgba(0, 0, 0, 0.03);
         }
@@ -152,9 +157,23 @@
             border-color: #9098A6 !important;
         }
         .form-input:focus {
-            outline: none;
-            border-color: #DC2237;
-            box-shadow: inset 0 0 0 2px rgba(220,34,55,0.18);
+            outline: none !important;
+            border-color: #9098A6 !important;
+            box-shadow: none !important;
+        }
+        .settings-tab-btn {
+            color: #374151;
+            outline: none !important;
+        }
+        .settings-tab-btn:focus,
+        .settings-tab-btn:focus-visible {
+            outline: none !important;
+            box-shadow: none;
+        }
+        .settings-tab-btn.active {
+            background: #FFFFFF;
+            color: #DC2237;
+            box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.05), 0 2px 8px -2px rgba(0, 0, 0, 0.03);
         }
     </style>
 </head>
@@ -194,7 +213,7 @@ Back
 <div class="grid grid-cols-1 md:grid-cols-12 gap-[24px]">
 
 <!-- Left: Avatar / Identity card -->
-<div class="col-span-full md:col-span-4 profile-shadow rounded-card relative self-start">
+<div class="col-span-full md:col-span-4 profile-shadow rounded-card relative self-start md:sticky md:top-0">
 <div class="rounded-card squircle bg-surface-container-lowest p-card-inner-padding flex flex-col items-center text-center">
 <div class="relative mb-6">
 <div class="w-[120px] h-[120px] rounded-full shadow-[0_8px_20px_-8px_rgba(26,32,40,0.18)]">
@@ -206,19 +225,34 @@ Back
 </div>
 <h2 class="text-[18px] font-semibold text-on-surface">Alex Watson</h2>
 <p class="text-label-md text-tertiary mt-1">Project Manager</p>
-<p class="text-label-md text-tertiary mt-4">alex.watson@rapidevelopers.com</p>
+<p class="text-[13px] font-medium text-on-surface mt-4">alex.watson@rapidevelopers.com</p>
 <div class="w-full mt-8 pt-6 border-t border-outline-variant/60">
-<p class="text-[11px] font-semibold text-tertiary uppercase tracking-wide text-left mb-3">Danger zone</p>
-<button class="w-full text-left flex items-center gap-2 px-3 py-2.5 rounded-lg text-[13px] font-medium text-primary hover:bg-primary/5 transition-colors">
-<span class="material-symbols-outlined text-[18px]">delete</span>
-Delete Account
+<p class="text-[11px] font-semibold text-tertiary uppercase tracking-wide text-left mb-3">Account</p>
+<div class="flex items-center gap-2">
+<button class="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg border border-outline-variant text-[13px] font-medium text-on-surface-variant hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+Log Out
 </button>
+<button class="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg border border-outline-variant text-[13px] font-medium text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+Delete
+</button>
+</div>
 </div>
 </div>
 </div>
 
 <!-- Right column -->
 <div class="col-span-full md:col-span-8 space-y-gutter">
+
+<!-- Settings tabs -->
+<div class="flex items-center gap-1 bg-surface-container-low rounded-full p-1 w-fit">
+<button class="settings-tab-btn active px-4 py-2 rounded-full text-[13px] font-semibold transition-colors" data-tab="profile">Profile</button>
+<button class="settings-tab-btn px-4 py-2 rounded-full text-[13px] font-semibold transition-colors" data-tab="calendars">Connected Calendars</button>
+<button class="settings-tab-btn px-4 py-2 rounded-full text-[13px] font-semibold transition-colors" data-tab="links">Booking Links</button>
+</div>
+
+<div id="tab-profile" class="settings-tab-panel">
 
 <!-- Profile details -->
 <div class="profile-shadow rounded-card">
@@ -240,10 +274,14 @@ Delete Account
 </div>
 </div>
 <div class="flex justify-end mt-6">
-<button class="px-5 py-2.5 rounded-xl squircle bg-primary text-white text-[14px] font-semibold shadow-[0_8px_20px_-6px_rgba(220,34,55,0.3)] hover:shadow-[0_10px_26px_-6px_rgba(220,34,55,0.4)] active:scale-95 transition-all">Save Changes</button>
+<button class="px-5 py-2.5 rounded-xl squircle bg-primary text-white text-[13px] font-medium shadow-[0_8px_20px_-6px_rgba(220,34,55,0.3)] hover:opacity-90 hover:shadow-[0_10px_26px_-6px_rgba(220,34,55,0.4)] active:scale-95 transition-all">Save Changes</button>
 </div>
 </div>
 </div>
+
+</div>
+
+<div id="tab-calendars" class="settings-tab-panel hidden">
 
 <!-- Connected Calendars -->
 <div class="profile-shadow rounded-card">
@@ -253,7 +291,7 @@ Delete Account
 <p class="font-title-sm text-title-sm mb-1">Connected Calendars</p>
 <p class="text-[12px] font-normal text-tertiary">Assign a company to color-code its events. Toggle any calendar to show it in the app.</p>
 </div>
-<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl squircle border border-outline-variant text-[13px] font-semibold text-on-surface hover:border-primary hover:text-primary transition-colors shrink-0 whitespace-nowrap self-start">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl squircle border border-outline-variant text-[13px] font-medium text-on-surface hover:border-primary hover:text-primary transition-colors shrink-0 whitespace-nowrap self-start">
 <span class="material-symbols-outlined text-[18px]">add_link</span>
 Connect Google Calendar
 </button>
@@ -395,6 +433,10 @@ Disconnect
 </div>
 </div>
 
+</div>
+
+<div id="tab-links" class="settings-tab-panel hidden">
+
 <!-- Booking Links -->
 <div class="profile-shadow rounded-card">
 <div class="rounded-card squircle bg-surface-container-lowest p-card-inner-padding">
@@ -411,7 +453,7 @@ Disconnect
 <p class="text-[13px] font-medium text-on-surface truncate leading-none">RapidDev</p>
 </div>
 <div class="flex items-center gap-2 w-full sm:w-auto">
-<input class="form-input text-[12px] py-1.5 flex-1 sm:w-64 text-tertiary" readonly="" value="https://calendar-tool-beta.vercel.app/book/alex-watson?brand=rapiddev" type="text">
+<input class="form-input text-[12px] py-1.5 flex-1 text-tertiary" style="width: 500px; max-width: 100%;" readonly="" value="https://calendar-tool-beta.vercel.app/book/alex-watson?brand=rapiddev" type="text">
 <button class="copy-link-btn w-8 h-8 rounded-lg flex items-center justify-center text-tertiary hover:text-primary hover:bg-primary/5 transition-colors shrink-0" data-link="https://calendar-tool-beta.vercel.app/book/alex-watson?brand=rapiddev" title="Copy link"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
 </div>
 </div>
@@ -439,9 +481,9 @@ Disconnect
 </div>
 </div>
 </div>
-<div class="flex items-center gap-2 px-4 pb-3 pt-2">
-<input class="form-input new-source-input text-[12px] py-1.5 flex-1" data-brand="rapiddev" placeholder="e.g. rd_newsletter" type="text">
-<button class="add-source-btn px-3 py-1.5 rounded-lg border border-outline-variant text-[12px] font-medium text-on-surface hover:border-primary hover:text-primary transition-colors shrink-0" data-brand="rapiddev">Add</button>
+<div class="flex items-center gap-2 px-4 pb-4 pt-2">
+<input class="form-input new-source-input text-[12px] flex-1 h-10" data-brand="rapiddev" placeholder="e.g. rd_newsletter" type="text">
+<button class="add-source-btn px-3 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-[12px] font-medium text-on-surface hover:border-primary hover:text-primary transition-colors shrink-0" data-brand="rapiddev">Add</button>
 </div>
 </div>
 
@@ -453,7 +495,7 @@ Disconnect
 <p class="text-[13px] font-medium text-on-surface truncate leading-none">Zeroqode</p>
 </div>
 <div class="flex items-center gap-2 w-full sm:w-auto">
-<input class="form-input text-[12px] py-1.5 flex-1 sm:w-64 text-tertiary" readonly="" value="https://calendar-tool-beta.vercel.app/book/alex-w?brand=zeroqode" type="text">
+<input class="form-input text-[12px] py-1.5 flex-1 text-tertiary" style="width: 500px; max-width: 100%;" readonly="" value="https://calendar-tool-beta.vercel.app/book/alex-w?brand=zeroqode" type="text">
 <button class="copy-link-btn w-8 h-8 rounded-lg flex items-center justify-center text-tertiary hover:text-primary hover:bg-primary/5 transition-colors shrink-0" data-link="https://calendar-tool-beta.vercel.app/book/alex-w?brand=zeroqode" title="Copy link"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
 </div>
 </div>
@@ -470,9 +512,9 @@ Disconnect
 </div>
 </div>
 </div>
-<div class="flex items-center gap-2 px-4 pb-3 pt-2">
-<input class="form-input new-source-input text-[12px] py-1.5 flex-1" data-brand="zeroqode" placeholder="e.g. zq_newsletter" type="text">
-<button class="add-source-btn px-3 py-1.5 rounded-lg border border-outline-variant text-[12px] font-medium text-on-surface hover:border-primary hover:text-primary transition-colors shrink-0" data-brand="zeroqode">Add</button>
+<div class="flex items-center gap-2 px-4 pb-4 pt-2">
+<input class="form-input new-source-input text-[12px] flex-1 h-10" data-brand="zeroqode" placeholder="e.g. zq_newsletter" type="text">
+<button class="add-source-btn px-3 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-[12px] font-medium text-on-surface hover:border-primary hover:text-primary transition-colors shrink-0" data-brand="zeroqode">Add</button>
 </div>
 </div>
 
@@ -484,7 +526,7 @@ Disconnect
 <p class="text-[13px] font-medium text-on-surface truncate leading-none">Kaleo</p>
 </div>
 <div class="flex items-center gap-2 w-full sm:w-auto">
-<input class="form-input text-[12px] py-1.5 flex-1 sm:w-64 text-tertiary" readonly="" value="https://calendar-tool-beta.vercel.app/book/alex-wat1?brand=kaleo" type="text">
+<input class="form-input text-[12px] py-1.5 flex-1 text-tertiary" style="width: 500px; max-width: 100%;" readonly="" value="https://calendar-tool-beta.vercel.app/book/alex-wat1?brand=kaleo" type="text">
 <button class="copy-link-btn w-8 h-8 rounded-lg flex items-center justify-center text-tertiary hover:text-primary hover:bg-primary/5 transition-colors shrink-0" data-link="https://calendar-tool-beta.vercel.app/book/alex-wat1?brand=kaleo" title="Copy link"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
 </div>
 </div>
@@ -501,14 +543,16 @@ Disconnect
 </div>
 </div>
 </div>
-<div class="flex items-center gap-2 px-4 pb-3 pt-2">
-<input class="form-input new-source-input text-[12px] py-1.5 flex-1" data-brand="kaleo" placeholder="e.g. kaleo_newsletter" type="text">
-<button class="add-source-btn px-3 py-1.5 rounded-lg border border-outline-variant text-[12px] font-medium text-on-surface hover:border-primary hover:text-primary transition-colors shrink-0" data-brand="kaleo">Add</button>
+<div class="flex items-center gap-2 px-4 pb-4 pt-2">
+<input class="form-input new-source-input text-[12px] flex-1 h-10" data-brand="kaleo" placeholder="e.g. kaleo_newsletter" type="text">
+<button class="add-source-btn px-3 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-[12px] font-medium text-on-surface hover:border-primary hover:text-primary transition-colors shrink-0" data-brand="kaleo">Add</button>
 </div>
 </div>
 
 </div>
 </div>
+</div>
+
 </div>
 
 </div>
@@ -580,6 +624,19 @@ document.querySelectorAll('.add-source-btn').forEach(function (btn) {
         wireDeleteButton(row.querySelector('.delete-link-btn'));
         list.appendChild(row);
         input.value = '';
+    });
+});
+</script>
+
+<!-- Settings tabs -->
+<script>
+var settingsTabBtns = document.querySelectorAll('.settings-tab-btn');
+var settingsTabPanels = document.querySelectorAll('.settings-tab-panel');
+settingsTabBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        var tab = btn.getAttribute('data-tab');
+        settingsTabBtns.forEach(function (b) { b.classList.toggle('active', b === btn); });
+        settingsTabPanels.forEach(function (p) { p.classList.toggle('hidden', p.id !== 'tab-' + tab); });
     });
 });
 </script>
